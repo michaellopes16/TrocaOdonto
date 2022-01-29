@@ -4,7 +4,7 @@ using System.Text;
 
 namespace TrocaOdonto.ViewModels
 {
-    class SplashViewModel
+    public class SplashViewModel
     {
     }
 }
