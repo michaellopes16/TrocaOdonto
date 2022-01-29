@@ -54,6 +54,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Com.Airbnb.Xamarin.Forms.Lottie">
+      <Version>4.0.11</Version>
+    </PackageReference>
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />
     <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
   </ItemGroup>
@@ -63,6 +66,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <AndroidAsset Include="Assets\SplashAnimationCart4.json" />
+    <AndroidAsset Include="Assets\SplashAnimationCart1.json" />
+    <AndroidAsset Include="Assets\SplashAnimationCart2.json" />
+    <AndroidAsset Include="Assets\SplashAnimationTeeth.json" />
+    <AndroidAsset Include="Assets\SplashAnimationCart3.json" />
     <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />
     <None Include="Properties\AndroidManifest.xml" />

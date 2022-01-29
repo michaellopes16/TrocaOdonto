@@ -1,14 +1,24 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:lottie="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
              x:Class="TrocaOdonto.Views.SplashPage">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Here will be the Splash Screen!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" 
-                FontSize="Large"
-                   />
+        <StackLayout
+            BackgroundColor="#bce4ec">
+            <lottie:AnimationView
+                x:Name="SplashAnimation"
+                AutoPlay="True"
+                Animation="SplashAnimationCart1.json"
+                AnimationSource="AssetOrBundle"
+                RepeatCount="2"
+                WidthRequest="150"
+                HeightRequest="150"
+                RepeatMode="Restart"
+                OnFinishedAnimation="SplashAnimation_OnFinishedAnimation"
+                VerticalOptions="FillAndExpand"
+                HorizontalOptions="FillAndExpand"
+                />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
