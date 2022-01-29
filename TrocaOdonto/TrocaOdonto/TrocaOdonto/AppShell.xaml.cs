@@ -6,7 +6,7 @@ using Xamarin.Forms;
 
 namespace TrocaOdonto
 {
-    public partial class AppShell : Xamarin.Forms.Shell
+    public partial class AppShell : Shell
     {
         public AppShell()
         {
