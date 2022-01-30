@@ -8,10 +8,12 @@
     <Application.Resources>
         <ResourceDictionary>
             <!-- Colors -->
-            <Color x:Key="PrimaryButton">#66aec7</Color>
+            <Color x:Key="PrimaryButton">#00BFFF</Color>
             <Color x:Key="DesableButton">#708090</Color>
             <Color x:Key="PrimaryBrackground">#bce4ec</Color>
-            <Color x:Key="PrimaryTextColor">#888888</Color>
+            <Color x:Key="PrimaryTextColor">#E0FFFF</Color>
+            <Color x:Key="SecundaryTextColor">#708090</Color>
+            <Color x:Key="LinkTextColor">#1E90FF</Color>
 
             <!-- Implicit styles -->
             <!-- Style button -->

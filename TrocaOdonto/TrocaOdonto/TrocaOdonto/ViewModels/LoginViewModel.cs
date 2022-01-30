@@ -11,6 +11,7 @@ namespace TrocaOdonto.ViewModels
     {
         public Command LoginCommand { get; }
         public Command RegisterCommand { get; }
+        public Command ForgotPasswordCommand { get; }
 
         private string _UserName;
 
@@ -34,6 +35,7 @@ namespace TrocaOdonto.ViewModels
         {
             LoginCommand = new Command(LoginCommandAsync);
             RegisterCommand = new Command(async () => await RegisterCommandAsync());
+            ForgotPasswordCommand = new Command(async () => await ForgotPasswordCommandAsync());
         }
 
         private async void LoginCommandAsync()
@@ -42,6 +44,11 @@ namespace TrocaOdonto.ViewModels
             await Application.Current.MainPage.Navigation.PushAsync(new AppShell());
         }
         private async Task RegisterCommandAsync()
+        {
+            // Prefixing with `//` switches to a different navigation stack instead of pushing to the active one
+            await Application.Current.MainPage.Navigation.PushAsync(new NewUserPage());
+        }
+        private async Task ForgotPasswordCommandAsync()
         {
             // Prefixing with `//` switches to a different navigation stack instead of pushing to the active one
             await Application.Current.MainPage.Navigation.PushAsync(new NewUserPage());
