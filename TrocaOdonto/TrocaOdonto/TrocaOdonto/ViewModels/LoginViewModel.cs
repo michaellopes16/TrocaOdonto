@@ -30,18 +30,25 @@ namespace TrocaOdonto.ViewModels
         }
 
 
-
         public LoginViewModel()
         {
-            LoginCommand = new Command(LoginCommandAsync);
+            LoginCommand = new Command(async () => await LoginCommandAsync());
             RegisterCommand = new Command(async () => await RegisterCommandAsync());
             ForgotPasswordCommand = new Command(async () => await ForgotPasswordCommandAsync());
         }
 
-        private async void LoginCommandAsync()
+        private async Task LoginCommandAsync()
         {
             // Prefixing with `//` switches to a different navigation stack instead of pushing to the active one
-            await Application.Current.MainPage.Navigation.PushAsync(new AppShell());
+            if (IsUserExists(UserName) && IsPasswordCorrect(UserPassword))
+            {
+                //Application.Current.MainPage = new AppShell();
+                await Shell.Current.Navigation.PushAsync(new AppShell());
+            }
+            else
+            {
+                await Application.Current.MainPage.DisplayAlert("Erro", "Senha ou usuário inválidos!", "Ok");
+            }
         }
         private async Task RegisterCommandAsync()
         {
@@ -51,7 +58,17 @@ namespace TrocaOdonto.ViewModels
         private async Task ForgotPasswordCommandAsync()
         {
             // Prefixing with `//` switches to a different navigation stack instead of pushing to the active one
-            await Application.Current.MainPage.Navigation.PushAsync(new NewUserPage());
+            await Application.Current.MainPage.Navigation.PushAsync(new ForgotPasswordPage());
+        }
+
+        private bool IsUserExists(string login)
+        {
+            return true;
+        }
+
+        private bool IsPasswordCorrect(string password)
+        {
+            return true;
         }
     }
 }
