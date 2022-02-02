@@ -39,15 +39,19 @@ namespace TrocaOdonto.ViewModels
 
         private async Task LoginCommandAsync()
         {
-            // Prefixing with `//` switches to a different navigation stack instead of pushing to the active one
-            if (IsUserExists(UserName) && IsPasswordCorrect(UserPassword))
+            try
             {
-                //Application.Current.MainPage = new AppShell();
-                await Shell.Current.Navigation.PushAsync(new AppShell());
-            }
-            else
+                if (IsUserExists(UserName) && IsPasswordCorrect(UserPassword))
+                {
+                    await Application.Current.MainPage.Navigation.PushAsync(new MainPage());
+                }
+                else
+                {
+                    await Application.Current.MainPage.DisplayAlert("Erro", "Senha ou usuário inválidos!", "Ok");
+                }
+            }catch (Exception e)
             {
-                await Application.Current.MainPage.DisplayAlert("Erro", "Senha ou usuário inválidos!", "Ok");
+                await Application.Current.MainPage.DisplayAlert("Erro", string.Format("Problema ao garregar página! {0}", e.Message), "Ok");
             }
         }
         private async Task RegisterCommandAsync()

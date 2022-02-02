@@ -45,7 +45,8 @@
                 </StackLayout>
             </Frame>
             <Button Text="Entrar" HorizontalOptions="Center" BackgroundColor="{StaticResource PrimaryButton}"
-                    TextColor="{StaticResource PrimaryTextColor}" Command="{Binding LoginCommand}"
+                    TextColor="{StaticResource PrimaryTextColor}" 
+                    Command="{Binding LoginCommand}"
                     Margin="0, 20, 0, 0"
                     ></Button>
             <Label Text="Ainda não tem cadastro?" FontFamily="franklin-gothic-medium" 

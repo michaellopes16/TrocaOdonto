@@ -14,7 +14,6 @@ namespace TrocaOdonto
             InitializeComponent();
 
             DependencyService.Register<MockDataStore>();
-            //MainPage = new AppShell();
             MainPage = new NavigationPage(new SplashPage());
         }
 
