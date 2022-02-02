@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrocaOdonto.Android", "Troc
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrocaOdonto.iOS", "TrocaOdonto\TrocaOdonto.iOS\TrocaOdonto.iOS.csproj", "{7B3CC70A-FF18-4347-89E8-DAF086F85935}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrocaOdonto", "TrocaOdonto\TrocaOdonto\TrocaOdonto.csproj", "{B2937135-6205-442E-B2DC-477F92D269ED}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TrocaOdonto", "TrocaOdonto\TrocaOdonto\TrocaOdonto.csproj", "{B2937135-6205-442E-B2DC-477F92D269ED}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
