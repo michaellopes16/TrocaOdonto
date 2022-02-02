@@ -19,7 +19,7 @@ namespace TrocaOdonto.ViewModels
 
         public ItemsViewModel()
         {
-            Title = "Browse";
+            Title = "Search";
             Items = new ObservableCollection<Item>();
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
 
