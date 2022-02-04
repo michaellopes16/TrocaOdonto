@@ -14,5 +14,5 @@
             <local:ItemDetailPage />
         </x:Arguments>
     </NavigationPage>
-    <local:AboutPage />
+    <local:MenuPage />
 </TabbedPage>
