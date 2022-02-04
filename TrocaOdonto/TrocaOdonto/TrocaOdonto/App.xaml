@@ -24,6 +24,7 @@
                 <Setter Property="CornerRadius" Value="6"></Setter>
                 <Setter Property="WidthRequest" Value="300"></Setter>
                 <Setter Property="HeightRequest" Value="40"></Setter>
+                <Setter Property="Margin" Value="0, 10, 0, 10"></Setter>
                 <Setter Property="VisualStateManager.VisualStateGroups">
                     <VisualStateGroupList>
                         <VisualStateGroup x:Name="CommonStates">

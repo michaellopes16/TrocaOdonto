@@ -3,9 +3,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              BackgroundColor="{StaticResource SecundaryBrackground}"
              xmlns:vm="clr-namespace:TrocaOdonto.ViewModels"
+             xmlns:userControl="clr-namespace:TrocaOdonto.Views.UserControls"
              x:Class="TrocaOdonto.Views.NewUserPage">
     <ContentPage.BindingContext>
-        <vm:LoginViewModel/>
+        <vm:NewUserViewModel/>
     </ContentPage.BindingContext>
     <ContentPage.Content>
         <ScrollView>
@@ -16,80 +17,23 @@
                    TextColor="{StaticResource SecundaryTextColor}"
                    VerticalOptions="Start" 
                    HorizontalOptions="Center" />
-                <Frame>
-                    <StackLayout Orientation="Horizontal">
-                        <Entry Placeholder="Nome de usuário" Text="{Binding UserName}" 
-                           PlaceholderColor="{StaticResource SecundaryTextColor}"
-                           TextColor="{StaticResource SecundaryTextColor}"></Entry>
-                        <Image Source="login.png"
-                           WidthRequest="30"
-                           HeightRequest="30" HorizontalOptions="End"></Image>
-                    </StackLayout>
-                </Frame>
-                <Frame>
-                    <StackLayout Orientation="Horizontal">
-                        <Entry Placeholder="E-mail" Text="{Binding Email}" 
-                           PlaceholderColor="{StaticResource SecundaryTextColor}"
-                           TextColor="{StaticResource SecundaryTextColor}"
-                           ></Entry>
-                        <Image Source="login.png"
-                           WidthRequest="30"
-                           HeightRequest="30" HorizontalOptions="End"></Image>
-                    </StackLayout>
-                </Frame>
-                <Frame>
-                    <StackLayout Orientation="Horizontal">
-                        <Entry Placeholder="Senha" Text="{Binding UserPassword}"
-                           PlaceholderColor="{StaticResource SecundaryTextColor}"
-                           TextColor="{StaticResource SecundaryTextColor}"
-                           ></Entry>
-                        <Image Source="login.png"
-                           WidthRequest="30"
-                           HeightRequest="30" HorizontalOptions="End"></Image>
-                    </StackLayout>
-                </Frame>
+                <userControl:TrocaOdontoTextBoxEntry Placeholder="Nome de usuário" TextField="{Binding UserName}" SourceImageField="login.png"/>
+                <userControl:TrocaOdontoTextBoxEntry Placeholder="E-mail" TextField="{Binding Email}" SourceImageField="login.png"/>
+                <userControl:TrocaOdontoTextBoxEntry Placeholder="Senha" TextField="{Binding UserPassword}" SourceImageField="login.png"/>
                 <Label Text="Pessoa Física ou Jurídica:" TextColor="{StaticResource SecundaryTextColor}" 
                        FontSize="18"
                        HorizontalOptions="CenterAndExpand"/>
                 <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
-                    <RadioButton Content="Pessoa Física"  HorizontalOptions="CenterAndExpand" 
+                    <RadioButton Content="Pessoa Física"  HorizontalOptions="CenterAndExpand"
                                  TextColor="{StaticResource SecundaryTextColor}" IsChecked="true"/>
                     <RadioButton Content="Pessoa Jurídica" HorizontalOptions="CenterAndExpand" 
                                  TextColor="{StaticResource SecundaryTextColor}"/>
                 </StackLayout>
-                <Frame>
-                    <StackLayout Orientation="Horizontal">
-                        <Entry Placeholder="Data de nascimento ou abertura" Text="{Binding DateOfBirth}"
-                           PlaceholderColor="{StaticResource SecundaryTextColor}"
-                           TextColor="{StaticResource SecundaryTextColor}"
-                           ></Entry>
-                        <Image Source="login.png"
-                           WidthRequest="30"
-                           HeightRequest="30" HorizontalOptions="End"></Image>
-                    </StackLayout>
-                </Frame>
-                <Frame>
-                    <StackLayout Orientation="Horizontal">
-                        <Entry Placeholder="CPF ou CNPJ" Text="{Binding UniqueIdentification}"
-                           PlaceholderColor="{StaticResource SecundaryTextColor}"
-                           TextColor="{StaticResource SecundaryTextColor}"
-                           ></Entry>
-                        <Image Source="login.png"
-                           WidthRequest="30"
-                           HeightRequest="30" HorizontalOptions="End"></Image>
-                    </StackLayout>
-                </Frame>
-                <Frame>
-                    <StackLayout Orientation="Horizontal">
-                        <Entry Placeholder="CEP" Text="{Binding CEP}"
-                           PlaceholderColor="{StaticResource SecundaryTextColor}"
-                           TextColor="{StaticResource SecundaryTextColor}"
-                           ></Entry>
-                        <Image Source="login.png"
-                           WidthRequest="30"
-                           HeightRequest="30" HorizontalOptions="End"></Image>
-                    </StackLayout>
-                </Frame>
+                <userControl:TrocaOdontoTextBoxEntry Placeholder="Data de nascimento ou abertura" TextField="{Binding DateOfBirth}" SourceImageField="login.png"/>
+                <userControl:TrocaOdontoTextBoxEntry Placeholder="CPF ou CNPJ" TextField="{Binding UniqueIdentification}" SourceImageField="login.png"/>
+                <userControl:TrocaOdontoTextBoxEntry Placeholder="CEP" TextField="{Binding CEP}" SourceImageField="login.png"/>
+                <Button Text="Cadastrar-se" HorizontalOptions="Center" BackgroundColor="{StaticResource PrimaryButton}"
+                    TextColor="{StaticResource PrimaryTextColor}" Command="{Binding RegisterUserCommand}"></Button>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

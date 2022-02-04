@@ -1,12 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
+using Xamarin.Forms;
+using TrocaOdonto.Views;
+
 
 namespace TrocaOdonto.ViewModels
 {
     public class NewUserViewModel:BaseViewModel
     {
         private string _UserName;
+        public Command RegisterUserCommand { get; }
 
         public string UserName
         {
@@ -60,6 +65,15 @@ namespace TrocaOdonto.ViewModels
         {
             get { return _CEP; }
             set { _CEP = value; OnPropertyChanged(); }
+        }
+        public NewUserViewModel()
+        {
+            RegisterUserCommand = new Command(async () => await RegisterCommandAsync());
+        }
+
+        private async Task RegisterCommandAsync()
+        {
+            await Application.Current.MainPage.Navigation.PushAsync(new ItemsPage());
         }
     }
 }
