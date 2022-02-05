@@ -1,11 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Application xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:converter="clr-namespace:TrocaOdonto.Views.Converters"
              x:Class="TrocaOdonto.App">
     <!--
         Define global resources and styles here, that apply to all pages in your app.
     -->
+
     <Application.Resources>
+        <converter:InverseBooleanConverter x:Key="InverseBooleanConverter"/>
         <ResourceDictionary>
             <!-- Colors -->
             <Color x:Key="PrimaryButton">#00BFFF</Color>
@@ -23,6 +26,7 @@
                 <Setter Property="CornerRadius" Value="6"></Setter>
                 <Setter Property="WidthRequest" Value="300"></Setter>
                 <Setter Property="HeightRequest" Value="40"></Setter>
+                <Setter Property="Margin" Value="0, 10, 0, 10"></Setter>
                 <Setter Property="VisualStateManager.VisualStateGroups">
                     <VisualStateGroupList>
                         <VisualStateGroup x:Name="CommonStates">
