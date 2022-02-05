@@ -43,12 +43,12 @@ namespace TrocaOdonto.ViewModels
             set { _DateOfBirth = value; OnPropertyChanged(); }
         }
 
-        private string _IsFicalPeople;
+        private bool _IsFicalPerson;
 
-        public string IsFicalPeople
+        public bool IsFicalPerson
         {
-            get { return _IsFicalPeople; }
-            set { _IsFicalPeople = value; OnPropertyChanged(); }
+            get => _IsFicalPerson;
+            set { _IsFicalPerson = value; OnPropertyChanged(); }
         }
 
         private string _UniqueIdentification;

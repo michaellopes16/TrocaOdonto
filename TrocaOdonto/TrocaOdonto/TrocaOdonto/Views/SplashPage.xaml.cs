@@ -12,12 +12,10 @@ namespace TrocaOdonto.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class SplashPage : ContentPage
     {
-        Image splashImage;
 
         public SplashPage()
         {
-            InitializeComponent();
-            
+            InitializeComponent(); 
         }
 
         private void SplashAnimation_OnFinishedAnimation(object sender, EventArgs e)

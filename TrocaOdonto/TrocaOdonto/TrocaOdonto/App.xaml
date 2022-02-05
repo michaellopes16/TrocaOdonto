@@ -1,12 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Application xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:converter="clr-namespace:TrocaOdonto.Views.Converters"
              x:Class="TrocaOdonto.App">
     <!--
         Define global resources and styles here, that apply to all pages in your app.
     -->
 
     <Application.Resources>
+        <converter:InverseBooleanConverter x:Key="InverseBooleanConverter"/>
         <ResourceDictionary>
             <!-- Colors -->
             <Color x:Key="PrimaryButton">#00BFFF</Color>

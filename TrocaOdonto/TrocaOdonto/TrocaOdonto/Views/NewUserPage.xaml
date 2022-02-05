@@ -11,27 +11,71 @@
     <ContentPage.Content>
         <ScrollView>
             <StackLayout>
-                <Label Text="Novo usuário!"
-                   FontSize="24"
-                   Margin="0, 20, 0, 20"
-                   TextColor="{StaticResource SecundaryTextColor}"
-                   VerticalOptions="Start" 
-                   HorizontalOptions="Center" />
+                <Image WidthRequest="80" HeightRequest="80"
+                       Source="newUser.png"
+                       Margin="0, 20, 0, 0"
+                       HorizontalOptions="CenterAndExpand"></Image>
+                <Label Text="Novo cadastro" FontSize="24" Margin="0, 20, 0, 20" TextColor="{StaticResource SecundaryTextColor}"
+                   VerticalOptions="Start"  HorizontalOptions="Center" FontAttributes="Bold" />
+
+                <!-- Main user's informations -->
                 <userControl:TrocaOdontoTextBoxEntry Placeholder="Nome de usuário" TextField="{Binding UserName}" SourceImageField="login.png"/>
-                <userControl:TrocaOdontoTextBoxEntry Placeholder="E-mail" TextField="{Binding Email}" SourceImageField="login.png"/>
-                <userControl:TrocaOdontoTextBoxEntry Placeholder="Senha" TextField="{Binding UserPassword}" SourceImageField="login.png"/>
+                <userControl:TrocaOdontoTextBoxEntry Placeholder="E-mail" TextField="{Binding Email}" SourceImageField="email.png"/>
+                <userControl:TrocaOdontoTextBoxEntry Placeholder="Senha" TextField="{Binding UserPassword}" SourceImageField="password3.png"/>
                 <Label Text="Pessoa Física ou Jurídica:" TextColor="{StaticResource SecundaryTextColor}" 
-                       FontSize="18"
-                       HorizontalOptions="CenterAndExpand"/>
+                       FontSize="18" HorizontalOptions="CenterAndExpand"/>
+
+                <!-- Select Fisical or Juridical Person-->
                 <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
                     <RadioButton Content="Pessoa Física"  HorizontalOptions="CenterAndExpand"
-                                 TextColor="{StaticResource SecundaryTextColor}" IsChecked="true"/>
+                                 TextColor="{StaticResource SecundaryTextColor}" IsChecked="{Binding IsFicalPerson, Mode=TwoWay}"/>
                     <RadioButton Content="Pessoa Jurídica" HorizontalOptions="CenterAndExpand" 
                                  TextColor="{StaticResource SecundaryTextColor}"/>
                 </StackLayout>
-                <userControl:TrocaOdontoTextBoxEntry Placeholder="Data de nascimento ou abertura" TextField="{Binding DateOfBirth}" SourceImageField="login.png"/>
-                <userControl:TrocaOdontoTextBoxEntry Placeholder="CPF ou CNPJ" TextField="{Binding UniqueIdentification}" SourceImageField="login.png"/>
-                <userControl:TrocaOdontoTextBoxEntry Placeholder="CEP" TextField="{Binding CEP}" SourceImageField="login.png"/>
+                <!-- Show just user a Fisical Person-->
+                <StackLayout IsVisible="{Binding IsFicalPerson, Mode=TwoWay}">
+                    <!--<userControl:TrocaOdontoTextBoxEntry Placeholder="Data de nascimento" TextField="{Binding DateOfBirth}" SourceImageField="login.png"/>-->
+                    <Label Text="Data de nascimento" TextColor="{StaticResource SecundaryTextColor}" 
+                       FontSize="14" HorizontalOptions="StartAndExpand" Margin="30, 0, 0, 0"/>
+                    <Frame>
+                        <StackLayout Orientation="Horizontal">
+                            <DatePicker HorizontalOptions="StartAndExpand"
+                                Margin="10, 0, 0, 0"
+                                TextColor="{StaticResource SecundaryTextColor}"
+                                MinimumDate="01/01/1900"
+                                MaximumDate="12/31/2024"
+                                Date="{Binding DateOfBirth}"/>
+                        <Image WidthRequest="30" HeightRequest="30"
+                               Source="datas.png"
+                               Margin="0, 0, 10, 0"
+                               HorizontalOptions="EndAndExpand"></Image>
+                        </StackLayout>
+                    </Frame>
+                    <userControl:TrocaOdontoTextBoxEntry Placeholder="CPF" TextField="{Binding UniqueIdentification}" SourceImageField="cpf.png"/>
+                </StackLayout>
+                
+                <!-- Show just user a Juridical Person-->
+                <StackLayout IsVisible="{Binding IsFicalPerson, Mode=TwoWay, Converter={StaticResource InverseBooleanConverter}}">
+                    <!--<userControl:TrocaOdontoTextBoxEntry Placeholder="Data de abertura" TextField="{Binding DateOfBirth}" SourceImageField="login.png"/>-->
+                    <Label Text="Data de abertura" TextColor="{StaticResource SecundaryTextColor}" 
+                       FontSize="14" HorizontalOptions="StartAndExpand" Margin="30, 0, 0, 0"/>
+                    <Frame>
+                        <StackLayout Orientation="Horizontal">
+                            <DatePicker HorizontalOptions="StartAndExpand"
+                                Margin="10, 0, 0, 0"
+                                TextColor="{StaticResource SecundaryTextColor}"
+                                MinimumDate="01/01/1900"
+                                MaximumDate="12/31/2024"
+                                Date="{Binding DateOfBirth}"/>
+                            <Image WidthRequest="30" HeightRequest="30"
+                               Source="datas.png"
+                               Margin="0, 0, 10, 0"
+                               HorizontalOptions="EndAndExpand"></Image>
+                        </StackLayout>
+                    </Frame>
+                    <userControl:TrocaOdontoTextBoxEntry Placeholder="CNPJ" TextField="{Binding UniqueIdentification}" SourceImageField="cpf.png"/>
+                </StackLayout>
+                <userControl:TrocaOdontoTextBoxEntry Placeholder="CEP" TextField="{Binding CEP}" SourceImageField="cep.png"/>
                 <Button Text="Cadastrar-se" HorizontalOptions="Center" BackgroundColor="{StaticResource PrimaryButton}"
                     TextColor="{StaticResource PrimaryTextColor}" Command="{Binding RegisterUserCommand}"></Button>
             </StackLayout>
