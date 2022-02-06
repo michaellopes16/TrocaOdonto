@@ -9,6 +9,7 @@
 
     <Application.Resources>
         <converter:InverseBooleanConverter x:Key="InverseBooleanConverter"/>
+        <converter:RecoveryPasswordConverter x:Key="RecoveryPasswordConverter"/>
         <ResourceDictionary>
             <!-- Colors -->
             <Color x:Key="PrimaryButton">#00BFFF</Color>
