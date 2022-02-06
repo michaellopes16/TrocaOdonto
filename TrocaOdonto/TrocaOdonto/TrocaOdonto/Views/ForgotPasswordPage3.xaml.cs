@@ -6,15 +6,14 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using TrocaOdonto.ViewModels;
 
 namespace TrocaOdonto.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class ForgotPasswordPage : ContentPage
+    public partial class ForgotoPasswordPage3 : ContentPage
     {
-        public ForgotPasswordPage()
-        {       
+        public ForgotoPasswordPage3()
+        {
             InitializeComponent();
         }
     }

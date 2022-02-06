@@ -54,13 +54,12 @@ namespace TrocaOdonto.Views.UserControls
                         typeof(string),
                         typeof(TrocaOdontoTextBoxEntry),
                         defaultValue: string.Empty,
-                        defaultBindingMode: BindingMode.OneWay,
-                        propertyChanged: TextFieldPropertyChanged);
+                        defaultBindingMode: BindingMode.TwoWay);
 
-        private static void TextFieldPropertyChanged(BindableObject bindable, object oldValue, object newValue)
+        public void TextFieldPropertyChanged(object sender, TextChangedEventArgs e)
         {
-            var trocaOdontoTextBox = (TrocaOdontoTextBoxEntry)bindable;
-            trocaOdontoTextBox.TextFieldName.Text = newValue?.ToString();
+            TextFieldName.Text = e.NewTextValue?.ToString();
+            TextField = TextFieldName.Text;
         }
 
         public string TextField
@@ -91,6 +90,7 @@ namespace TrocaOdonto.Views.UserControls
         public TrocaOdontoTextBoxEntry()
         {
             InitializeComponent();
+            TextFieldName.TextChanged += TextFieldPropertyChanged;
         }
 
     }
