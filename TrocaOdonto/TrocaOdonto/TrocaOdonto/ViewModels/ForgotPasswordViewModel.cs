@@ -41,7 +41,6 @@ namespace TrocaOdonto.ViewModels
             {
                 if (sendMail.SendForgotMailToUser(mail, user))
                 {
-                    //await Application.Current.MainPage.DisplayAlert("Sucesso", "Email enviado com sucesso. Adicione código " + SendMail.VALIDATION_COD + " na próxima tela!", "OK");
                     await Application.Current.MainPage.Navigation.PushAsync(new ForgotPasswordPage2());
                 }
                 else
