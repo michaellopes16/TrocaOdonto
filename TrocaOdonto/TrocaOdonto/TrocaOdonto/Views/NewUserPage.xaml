@@ -22,6 +22,8 @@
                 <userControl:TrocaOdontoTextBoxEntry Placeholder="Nome de usuário" TextField="{Binding UserName}" SourceImageField="login.png"/>
                 <userControl:TrocaOdontoTextBoxEntry Placeholder="E-mail" TextField="{Binding Email}" SourceImageField="email.png"/>
                 <userControl:TrocaOdontoTextBoxEntry Placeholder="Senha" TextField="{Binding UserPassword}" SourceImageField="password3.png"/>
+                <userControl:TrocaOdontoTextBoxEntry Placeholder="Telefone" TextField="{Binding Phone}" SourceImageField="phone.png"/>
+
                 <Label Text="Pessoa Física ou Jurídica?" TextColor="{StaticResource SecundaryTextColor}" 
                        FontSize="18" HorizontalOptions="CenterAndExpand"/>
 

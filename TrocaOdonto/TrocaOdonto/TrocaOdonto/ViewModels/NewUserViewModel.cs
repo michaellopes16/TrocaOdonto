@@ -35,6 +35,14 @@ namespace TrocaOdonto.ViewModels
             set { _Email = value; OnPropertyChanged(); }
         }
 
+        private string _Phone;
+
+        public string Phone
+        {
+            get { return _Phone; }
+            set { _Phone = value; OnPropertyChanged(); }
+        }
+
         private string _DateOfBirth;
 
         public string DateOfBirth
