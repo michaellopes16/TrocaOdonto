@@ -11,17 +11,36 @@
     <ContentPage.Content>
         <ScrollView>
             <StackLayout>
-                <Image WidthRequest="80" HeightRequest="80"
+                <!--<Image WidthRequest="80" HeightRequest="80"
                        Source="newUser.png"
                        Margin="0, 20, 0, 0"
-                       HorizontalOptions="CenterAndExpand"></Image>
+                       HorizontalOptions="CenterAndExpand"></Image>-->
+
                 <Label Text="Novo cadastro" FontSize="24" Margin="0, 20, 0, 20" TextColor="{StaticResource SecundaryTextColor}"
                    VerticalOptions="Start"  HorizontalOptions="Center" FontAttributes="Bold" />
-
+                <Frame CornerRadius="60" WidthRequest="120" HeightRequest="120" HorizontalOptions="Center">
+                    <Grid      VerticalOptions="FillAndExpand"
+                               HorizontalOptions="FillAndExpand">
+                        <Button BackgroundColor="AliceBlue"
+                                HorizontalOptions="CenterAndExpand"
+                                Command="{Binding LoadImageUserCommand}"
+                                CommandParameter="{x:Reference UserImage}"
+                                VerticalOptions="End"
+                                Margin="0, 30, 0, 0"
+                                TextColor="{StaticResource SecundaryTextColor}"/>
+                        <Image x:Name="UserImage"
+                               WidthRequest="100" HeightRequest="100"
+                               Source="newUser.png"
+                               Aspect="AspectFill"></Image>
+                    </Grid>
+                </Frame>
+                <Label x:Name="LabelInfo" Text="Carrege uma imagem" FontSize="14" Margin="0, 10, 0, 10" TextColor="{StaticResource SecundaryTextColor}"
+                   VerticalOptions="Start"  HorizontalOptions="Center" FontAttributes="Bold" />
                 <!-- Main user's informations -->
                 <userControl:TrocaOdontoTextBoxEntry Placeholder="Nome de usuário" TextField="{Binding UserName}" SourceImageField="login.png"/>
                 <userControl:TrocaOdontoTextBoxEntry Placeholder="E-mail" TextField="{Binding Email}" SourceImageField="email.png"/>
                 <userControl:TrocaOdontoTextBoxEntry Placeholder="Senha" TextField="{Binding UserPassword}" SourceImageField="password3.png"/>
+                <userControl:TrocaOdontoTextBoxEntry Placeholder="Telefone" TextField="{Binding Phone}" SourceImageField="phone.png"/>
                 <Label Text="Pessoa Física ou Jurídica?" TextColor="{StaticResource SecundaryTextColor}" 
                        FontSize="18" HorizontalOptions="CenterAndExpand"/>
 
@@ -75,7 +94,6 @@
                     </Frame>
                     <userControl:TrocaOdontoTextBoxEntry Placeholder="CNPJ" TextField="{Binding UniqueIdentification}" SourceImageField="cpf.png"/>
                 </StackLayout>
-                <userControl:TrocaOdontoTextBoxEntry Placeholder="CEP" TextField="{Binding CEP}" SourceImageField="cep.png"/>
                 <Button Text="Cadastrar-se" HorizontalOptions="Center" BackgroundColor="{StaticResource PrimaryButton}"
                     TextColor="{StaticResource PrimaryTextColor}" Command="{Binding RegisterUserCommand}"></Button>
             </StackLayout>

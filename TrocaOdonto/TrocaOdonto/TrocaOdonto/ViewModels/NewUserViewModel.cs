@@ -4,7 +4,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using TrocaOdonto.Views;
-
+using Xamarin.Essentials;
 
 namespace TrocaOdonto.ViewModels
 {
@@ -12,6 +12,7 @@ namespace TrocaOdonto.ViewModels
     {
         private string _UserName;
         public Command RegisterUserCommand { get; }
+        public Command LoadImageUserCommand { get; }
 
         public string UserName
         {
@@ -33,6 +34,14 @@ namespace TrocaOdonto.ViewModels
         {
             get { return _Email; }
             set { _Email = value; OnPropertyChanged(); }
+        }
+
+        private string _Phone;
+
+        public string Phone
+        {
+            get { return _Phone; }
+            set { _Phone = value; OnPropertyChanged(); }
         }
 
         private string _DateOfBirth;
@@ -59,16 +68,34 @@ namespace TrocaOdonto.ViewModels
             set { _UniqueIdentification = value; OnPropertyChanged(); }
         }
 
-        private string _CEP;
-
-        public string CEP
-        {
-            get { return _CEP; }
-            set { _CEP = value; OnPropertyChanged(); }
-        }
         public NewUserViewModel()
         {
             RegisterUserCommand = new Command(async () => await RegisterCommandAsync());
+            LoadImageUserCommand = new Command<Image>(async (x) => await LoadImageUserCommandAsync(x));
+        }
+
+        private async Task LoadImageUserCommandAsync(Image image)
+        {
+            try
+            {
+                var file = await FilePicker.PickAsync(
+                    new PickOptions
+                    {
+                        PickerTitle = "Por favor, escolha uma foto para seu perfil",
+                        FileTypes = FilePickerFileType.Images
+                    });
+
+                if (file != null)
+                {
+                    var stream = await file.OpenReadAsync();
+                    image.Source = ImageSource.FromStream(() => stream);
+                    // Get peth of image here in future
+                }
+            }
+            catch (Exception)
+            {
+                await Application.Current.MainPage.DisplayAlert("Erro", "Problema ao carregar a imagem", "OK");
+            }
         }
 
         private async Task RegisterCommandAsync()
