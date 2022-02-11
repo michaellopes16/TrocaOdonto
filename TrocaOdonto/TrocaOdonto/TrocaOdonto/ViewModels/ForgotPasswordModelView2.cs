@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Rg.Plugins.Popup.Extensions;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
@@ -39,17 +40,15 @@ namespace TrocaOdonto.ViewModels
             CodeVerification = entry.TextField;
             if (CheckCode(CodeVerification) == 1)
             {
-                //await Application.Current.MainPage.DisplayAlert("Deu certo!", "Redefina sua senha na próxima página", "OK");
                 await Application.Current.MainPage.Navigation.PushAsync(new ForgotoPasswordPage3());
-
             }
             else if (CheckCode(CodeVerification) == -1)
             {
-                await Application.Current.MainPage.DisplayAlert("Erro!", "Campo Vazio. Insira um código válido!", "OK");
+                await Application.Current.MainPage.Navigation.PushPopupAsync(new TrocaOdontoDialog("Erro!", "Campo Vazio. Insira um código válido!"));
             }
             else
             {
-                await Application.Current.MainPage.DisplayAlert("Erro!", "Teu código tá errado visse? Presta atenção ai no email!", "OK");
+                await Application.Current.MainPage.Navigation.PushPopupAsync(new TrocaOdontoDialog("Erro!", "Teu código tá errado visse? Presta atenção ai no email!"));
             }
             CanDoAction = true;
         }

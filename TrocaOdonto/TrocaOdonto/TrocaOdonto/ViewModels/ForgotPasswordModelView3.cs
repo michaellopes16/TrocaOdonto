@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Rg.Plugins.Popup.Extensions;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
@@ -39,25 +40,27 @@ namespace TrocaOdonto.ViewModels
 
         private async Task ConfirmCodeVerification(object sender)
         {
+
             var recoveryPassword = sender as RecoveryPassword;
             CanDoAction = false;
             await Task.Delay(500);
-            NewPassword = recoveryPassword.NewPassword;
-            NewPasswordVerification = recoveryPassword.NewPasswordVerification;
-
+            if (recoveryPassword != null)
+            {
+                NewPassword = recoveryPassword.NewPassword;
+                NewPasswordVerification = recoveryPassword.NewPasswordVerification;
+            }
             if (CheckSamePassword(NewPassword, NewPasswordVerification) == 1)
             {
-                await Application.Current.MainPage.DisplayAlert("Deu certo!", "Agora é só tentar fazer Login novamente :)", "OK");
+                await Application.Current.MainPage.Navigation.PushPopupAsync(new TrocaOdontoDialog("Deu certo!", "Agora é só tentar fazer Login novamente :)"));
                 await Application.Current.MainPage.Navigation.PushAsync(new LoginPage());
-
             }
             else if (CheckSamePassword(NewPassword, NewPasswordVerification) == -1)
             {
-                await Application.Current.MainPage.DisplayAlert("Erro!", "Campo Vazio. Insira um código válido!", "OK");
+                await Application.Current.MainPage.Navigation.PushPopupAsync(new TrocaOdontoDialog("Erro!", "Campo Vazio. Tem que ter uma senha pra salvar né? Se liga ai heheh!"));
             }
             else
             {
-                await Application.Current.MainPage.DisplayAlert("Erro!", "Tem que ser a mesma senha, blz? Presta atenção ai heheh !", "OK");
+                await Application.Current.MainPage.Navigation.PushPopupAsync(new TrocaOdontoDialog("Erro!", "Tem que ser a mesma senha, blz? Presta atenção ai heheh !"));
             }
             CanDoAction = true;
         }

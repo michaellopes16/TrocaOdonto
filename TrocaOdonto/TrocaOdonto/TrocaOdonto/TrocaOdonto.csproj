@@ -8,6 +8,7 @@
   <ItemGroup>
     <PackageReference Include="Com.Airbnb.Xamarin.Forms.Lottie" Version="4.1.0" />
     <PackageReference Include="MailKit" Version="3.1.1" />
+    <PackageReference Include="Rg.Plugins.Popup" Version="2.1.0" />
     <PackageReference Include="SendGrid" Version="9.25.2" />
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2337" />  
     <PackageReference Include="Xamarin.Essentials" Version="1.7.1" />
@@ -39,6 +40,9 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\SplashPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\UserControls\TrocaOdontoDialog.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\UserControls\TrocaOdontoTextBoxEntry.xaml">

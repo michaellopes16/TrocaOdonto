@@ -3,6 +3,8 @@ using TrocaOdonto.Util;
 using Xamarin.Forms;
 using TrocaOdonto.Views;
 using TrocaOdonto.Views.UserControls;
+using Rg.Plugins.Popup.Extensions;
+using Android.Content.Res;
 
 namespace TrocaOdonto.ViewModels
 {
@@ -45,14 +47,14 @@ namespace TrocaOdonto.ViewModels
                 }
                 else
                 {
-                    await Application.Current.MainPage.DisplayAlert("Erro!", "Não conseguimos enviar seu email de recuperação. Tente mais tarde com outro email!", "OK");
+                    await Application.Current.MainPage.Navigation.PushPopupAsync(new TrocaOdontoDialog("Erro", "Não conseguimos enviar seu email de recuperação. Tente mais tarde com outro email!"));
                 }
             }else if (CheckIfEmailExist(mail) == -1) {
-                await Application.Current.MainPage.DisplayAlert("Erro!", "Campo Vazio. Insira um email válido!", "OK");
+                await Application.Current.MainPage.Navigation.PushPopupAsync(new TrocaOdontoDialog("Erro", "Campo Vazio. Insira um email válido!"));
             }
             else
             {
-                await Application.Current.MainPage.DisplayAlert("Erro!", "Email não existe na base. Cadastre-se!", "OK");                
+                await Application.Current.MainPage.Navigation.PushPopupAsync(new TrocaOdontoDialog("Erro", "Email não existe na base. Cadastre-se!"));              
             }
             CanDoAction = true;
         }
